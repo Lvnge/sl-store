@@ -1,0 +1,142 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 48px;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  font-size: 1em;
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    color 300ms ease;
+  color: var(--color-text);
+}
+
+.desktopLinks {
+  display: none;
+  gap: 1.5rem;
+}
+
+.desktopLinks a {
+  opacity: 0.8;
+}
+
+.desktopLinks a:hover {
+  opacity: 1;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-left: 0.75rem;
+}
+.themeToggle {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  transition: color 300ms ease;
+}
+
+.spacer {
+  flex: 1;
+  height: 1em;
+  border-left: 1px solid var(--color-border);
+  transition: border-color 300ms ease;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  min-width: 54px;
+  font-size: 1em;
+  transition: color 300ms ease;
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.98);
+  transform-origin: top;
+  transition:
+    opacity 300ms ease,
+    visibility 300ms ease,
+    transform 300ms ease,
+    background-color 300ms ease,
+    border-color 300ms ease;
+}
+
+.mobileMenuOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: var(--color-text-muted);
+}
+
+.mobileInfo a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 300ms ease;
+}
+
+/* Desktop breakpoint */
+@media (min-width: 768px) {
+  .desktopLinks {
+    display: flex;
+  }
+  .spacer {
+    display: none;
+  }
+  .menuButton {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.icon {
+  display: flex;
+}

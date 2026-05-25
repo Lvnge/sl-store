@@ -1,0 +1,105 @@
+/* ============================================
+   THEME TOKENS
+   All colors reference these variables.
+   Add your own as you style each section.
+   ============================================ */
+
+:root {
+  --color-bg: #f2f3f4;
+  --color-bg-subtle: #e8e9ea;
+  --color-surface: #dddee0;
+  --color-border: #c8c9cb;
+  --color-text: #121415;
+  --color-text-muted: #666870;
+  --color-accent: #121415;
+  --color-accent-hover: #2e3133;
+
+  --font-sans: system-ui, sans-serif;
+  --font-mono: monospace;
+
+  --radius: 4px;
+  --transition: 300ms ease;
+}
+
+[data-theme="dark"] {
+  --color-bg: #121415;
+  --color-bg-subtle: #1a1c1e;
+  --color-surface: #222527;
+  --color-border: #2e3133;
+  --color-text: #f2f3f4;
+  --color-text-muted: #888b8e;
+  --color-accent: #f2f3f4;
+  --color-accent-hover: #d0d1d2;
+}
+
+/* ============================================
+   FONTS
+   ============================================ */
+@font-face {
+  font-family: "PMingLiU-ExtB";
+  src: url("/fonts/mingliub.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-sans: var(--font-cormorant), serif;
+}
+/* ============================================
+   BASE RESET
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+  min-height: 100vh;
+  padding-top: 48px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.page {
+  animation: fadeIn 300ms ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
