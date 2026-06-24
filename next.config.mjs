@@ -1,20 +1,20 @@
-import createMDX from '@next/mdx'
+import createMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Allow .mdx files as pages or imports
-  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ["js", "jsx", "md", "mdx"],
   images: {
-    // Add domains here if you later use Cloudinary or external hosts
     remotePatterns: [],
+    formats: ["image/webp"],
   },
-}
+};
 
 const withMDX = createMDX({
   options: {
     remarkPlugins: [],
     rehypePlugins: [],
   },
-})
+});
 
-export default withMDX(nextConfig)
+export default withMDX(nextConfig);

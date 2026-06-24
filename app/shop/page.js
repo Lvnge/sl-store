@@ -1,19 +1,34 @@
-import Link from 'next/link'
-import { products } from '@/lib/products'
-
 export default function ShopPage() {
   return (
-    <main>
-      <h1>Shop</h1>
-      <ul>
-        {products.filter((p) => p.available).map((product) => (
-          <li key={product.id}>
-            <Link href={`/shop/${product.slug}`}>{product.name}</Link>
-            <span>${product.price}</span>
-            <span>{product.category}</span>
-          </li>
-        ))}
-      </ul>
+    <main
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "80vh",
+        gap: "0.5rem",
+        color: "var(--color-text-muted)",
+      }}
+    >
+      <span
+        style={{
+          fontSize: "0.75rem",
+          letterSpacing: "0.1em",
+          opacity: 0.4,
+        }}
+      >
+        próximamente
+      </span>
+      <p
+        style={{
+          fontSize: "0.9rem",
+          opacity: 0.4,
+          margin: 0,
+        }}
+      >
+        tienda en construcción
+      </p>
     </main>
-  )
+  );
 }

@@ -7,6 +7,7 @@
   color: var(--color-text);
   transition: color 300ms ease;
 }
+
 .header {
   display: flex;
   flex-direction: column;
@@ -30,34 +31,14 @@
   letter-spacing: 0.08em;
   transition: color 300ms ease;
 }
-.imageWrapper {
-  position: relative;
-  width: 30%;
-  overflow: hidden;
-}
-
-.singleImage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1.414;
-  overflow: hidden;
-}
-
-.image {
-  object-fit: cover;
-  transition: opacity 300ms ease;
-}
-
-.card:hover .image {
-  opacity: 0.85;
-}
 
 .description {
   font-size: 0.9rem;
   color: var(--color-text-muted);
   text-align: center;
-  max-width: 280px;
+  max-width: 360px;
   transition: color 300ms ease;
+  margin: 0;
 }
 
 .details {
@@ -84,7 +65,82 @@
   padding-right: 1rem;
   transition: color 300ms ease;
 }
+
 .detailValue {
   text-align: left;
   transition: color 300ms ease;
+}
+
+/* Carousel */
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 560px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3496 / 2480;
+  overflow: hidden;
+}
+
+.spread {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.spreadDivider .page:first-child {
+  border-right: 1px solid rgba(128, 128, 128, 0.15);
+}
+
+.page {
+  position: relative;
+  flex: 1;
+  height: 100%;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.controlsCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.preview {
+  font-size: 0.8rem;
+  opacity: 0.4;
+  letter-spacing: 0.05em;
+}
+.arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: inherit;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.arrow:hover {
+  opacity: 1;
+}
+
+.counter {
+  font-size: 0.75rem;
+  opacity: 0.4;
+  letter-spacing: 0.05em;
 }

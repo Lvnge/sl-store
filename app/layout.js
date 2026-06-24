@@ -12,8 +12,12 @@ const cormorant = Cormorant_Infant({
 });
 
 export const metadata = {
-  title: "Portfolio",
-  description: "Photography and zines",
+  title: "silent lung",
+  description: "Fotografía y zines",
+  icons: {
+    icon: "/favicon.svg?v=1",
+    shortcut: "/favicon.ico",
+  },
 };
 
 const themeScript = `

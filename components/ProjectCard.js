@@ -1,20 +1,27 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { BookViewer } from "./BookViewer";
 import styles from "./ProjectCard.module.css";
 
 export function ProjectCard({
   title,
   type,
   description,
-  image,
   images,
   href,
   details,
+  spreadDivider = true,
 }) {
-  const hasBook = images && images.length > 0;
-  const hasSingleImage = !hasBook && image;
+  const [current, setCurrent] = useState(0);
+  const totalSpreads = Math.ceil((images?.length || 0) / 2);
 
+  const prev = () => setCurrent((i) => (i - 1 + totalSpreads) % totalSpreads);
+  const next = () => setCurrent((i) => (i + 1) % totalSpreads);
+
+  const leftImage = images?.[current * 2];
+  const rightImage = images?.[current * 2 + 1];
+  console.log("leftImage:", leftImage, "rightImage:", rightImage);
   return (
     <div className={styles.card}>
       <Link href={href} className={styles.header}>
@@ -22,28 +29,71 @@ export function ProjectCard({
         {type && <span className={styles.type}>{type}</span>}
       </Link>
 
-      {hasBook && (
-        <div className={styles.imageWrapper}>
-          <BookViewer images={images} />
+      {images && images.length > 0 && (
+        <div className={styles.carousel}>
+          <div className={styles.imageWrapper}>
+            <div
+              className={`${styles.spread} ${spreadDivider ? styles.spreadDivider : ""}`}
+            >
+              <div className={styles.page}>
+                {leftImage && (
+                  <Image
+                    src={leftImage}
+                    alt={`${title} página ${current * 2 + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 280px"
+                    className={styles.image}
+                  />
+                )}
+              </div>
+
+              {rightImage && (
+                <div className={styles.page}>
+                  <Image
+                    src={rightImage}
+                    alt={`${title} página ${current * 2 + 2}`}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 280px"
+                    className={styles.image}
+                    loading="eager"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+          {totalSpreads > 1 && (
+            <div className={styles.controls}>
+              <button
+                onClick={prev}
+                className={styles.arrow}
+                aria-label="Anterior"
+              >
+                ←
+              </button>
+              <div className={styles.controlsCenter}>
+                <span className={styles.preview}>preview</span>
+                <span className={styles.counter}>
+                  {current + 1} / {totalSpreads}
+                </span>
+              </div>
+              <button
+                onClick={next}
+                className={styles.arrow}
+                aria-label="Siguiente"
+              >
+                →
+              </button>
+            </div>
+          )}
         </div>
       )}
 
-      {hasSingleImage && (
-        <Link href={href}>
-          <div className={styles.singleImage}>
-            <Image
-              src={image}
-              alt={title}
-              fill
-              sizes="(min-width: 768px) 33vw, 100vw"
-              className={styles.pageImage}
-            />
-          </div>
-        </Link>
-      )}
-
-      {description && <p className={styles.description}>{description}</p>}
-
+      {description &&
+        description.map((text, i) => (
+          <p key={i} className={styles.description}>
+            {text}
+          </p>
+        ))}
       {details && (
         <ul className={styles.details}>
           {Object.entries(details).map(([key, value]) => (

@@ -1,0 +1,13 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="crescent">
+      <path fill-rule="evenodd" d="
+        M 100 14 A 86 86 0 1 0 100 186 A 86 86 0 1 0 100 14 Z
+        M 118 18 A 82 82 0 1 1 118 182 A 82 82 0 1 1 118 18 Z
+      "/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#crescent)">
+    <rect x="0" y="0" width="200" height="200" fill="#c8c8c8"/>
+  </g>
+</svg>
