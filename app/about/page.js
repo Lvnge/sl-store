@@ -19,7 +19,9 @@ export default function AboutPage() {
         <h1 className={styles.name}>Román Montes</h1>
         <span className={styles.location}>Nayarit, México</span>
 
-        <div></div>
+        <p className={styles.description}>
+          Fotografía, video, dibujo, pintura, escritura, zines y música.
+        </p>
 
         <div className={styles.links}>
           <a

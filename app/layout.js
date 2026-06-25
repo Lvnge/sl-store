@@ -1,7 +1,7 @@
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Nav } from "@/components/Nav";
-
+import { Footer } from "@/components/Footer";
 import { Cormorant_Infant } from "next/font/google";
 
 const cormorant = Cormorant_Infant({
@@ -47,6 +47,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <Nav />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
