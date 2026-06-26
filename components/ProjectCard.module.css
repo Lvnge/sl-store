@@ -87,6 +87,7 @@
   width: 100%;
   aspect-ratio: 3496 / 2480;
   overflow: hidden;
+  aspect-ratio: var(--carousel-ratio);
 }
 
 .spread {

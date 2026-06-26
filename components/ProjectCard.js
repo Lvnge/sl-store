@@ -12,16 +12,19 @@ export function ProjectCard({
   href,
   details,
   spreadDivider = true,
+  aspectRatio = "3496 / 2480",
+  singleImage = false,
 }) {
   const [current, setCurrent] = useState(0);
-  const totalSpreads = Math.ceil((images?.length || 0) / 2);
-
+  const totalSpreads = singleImage
+    ? images?.length || 0
+    : Math.ceil((images?.length || 0) / 2);
   const prev = () => setCurrent((i) => (i - 1 + totalSpreads) % totalSpreads);
   const next = () => setCurrent((i) => (i + 1) % totalSpreads);
 
-  const leftImage = images?.[current * 2];
-  const rightImage = images?.[current * 2 + 1];
-  console.log("leftImage:", leftImage, "rightImage:", rightImage);
+  const leftImage = singleImage ? images?.[current] : images?.[current * 2];
+  const rightImage = singleImage ? null : images?.[current * 2 + 1];
+
   return (
     <div className={styles.card}>
       <Link href={href} className={styles.header}>
@@ -31,23 +34,34 @@ export function ProjectCard({
 
       {images && images.length > 0 && (
         <div className={styles.carousel}>
-          <div className={styles.imageWrapper}>
+          <div
+            className={styles.imageWrapper}
+            style={{ "--carousel-ratio": aspectRatio }}
+          >
             <div
               className={`${styles.spread} ${spreadDivider ? styles.spreadDivider : ""}`}
             >
-              <div className={styles.page}>
+              <div
+                className={styles.page}
+                style={singleImage ? { flex: "1 1 100%" } : {}}
+              >
                 {leftImage && (
                   <Image
                     src={leftImage}
-                    alt={`${title} página ${current * 2 + 1}`}
+                    alt={`${title} página ${current + 1}`}
                     fill
-                    sizes="(max-width: 768px) 50vw, 280px"
+                    sizes={
+                      singleImage
+                        ? "(max-width: 768px) 100vw, 560px"
+                        : "(max-width: 768px) 50vw, 280px"
+                    }
                     className={styles.image}
+                    priority={current === 0}
                   />
                 )}
               </div>
 
-              {rightImage && (
+              {!singleImage && rightImage && (
                 <div className={styles.page}>
                   <Image
                     src={rightImage}

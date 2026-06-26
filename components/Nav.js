@@ -9,6 +9,12 @@ export function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
+  const handleNav = (href) => {
+    setMenuOpen(false);
+    setTimeout(() => {
+      window.location.href = href;
+    }, 100); // mismo tiempo que la transición del menú
+  };
 
   return (
     <>
@@ -52,15 +58,24 @@ export function Nav() {
         className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}
       >
         <div className={styles.mobileLinks}>
-          <Link href="/portfolio" onClick={() => setMenuOpen(false)}>
+          <button
+            onClick={() => handleNav("/portfolio")}
+            className={styles.mobileLink}
+          >
             portafolio
-          </Link>
-          <Link href="/shop" onClick={() => setMenuOpen(false)}>
+          </button>
+          <button
+            onClick={() => handleNav("/shop")}
+            className={styles.mobileLink}
+          >
             tienda
-          </Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)}>
+          </button>
+          <button
+            onClick={() => handleNav("/about")}
+            className={styles.mobileLink}
+          >
             sobre mí
-          </Link>
+          </button>
         </div>
         <div className={styles.mobileInfo}>
           <p>román montes</p>
