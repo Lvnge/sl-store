@@ -19,6 +19,8 @@
 }
 
 .title {
+  text-align: center;
+  width: 100%;
   font-size: 2.5rem;
   font-family: var(--card-title-font, var(--font-sans));
   font-style: var(--card-title-style, normal);
