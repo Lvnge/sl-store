@@ -41,6 +41,7 @@
   font-family: var(--card-title-font, var(--font-sans));
   text-align: center;
   width: 100%;
+  transition: color 300ms ease;
 }
 .type {
   font-size: 0.75rem;
