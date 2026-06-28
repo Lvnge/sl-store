@@ -15,8 +15,7 @@ export const metadata = {
   title: "silent lung",
   description: "Fotografía y zines",
   icons: {
-    icon: "/favicon.svg?v=2",
-    apple: "/apple-touch-icon.png?v=2",
+    icon: "/favicon.svg?v=3",
   },
   manifest: "/manifest.json",
 };
@@ -41,6 +40,7 @@ export default function RootLayout({ children }) {
       className={cormorant.variable}
     >
       <head>
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       {""}
