@@ -15,9 +15,10 @@ export const metadata = {
   title: "silent lung",
   description: "Fotografía y zines",
   icons: {
-    icon: "/favicon.svg?v=1",
-    apple: "/apple-touch-icon-200.png?v=1",
+    icon: "/favicon.svg?v=2",
+    apple: "/apple-touch-icon.png?v=2",
   },
+  manifest: "/manifest.json",
 };
 
 const themeScript = `

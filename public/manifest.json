@@ -1,0 +1,14 @@
+{
+  "name": "silent lung",
+  "short_name": "silent lung",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "200x200",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#121415",
+  "background_color": "#121415",
+  "display": "standalone"
+}
