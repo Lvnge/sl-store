@@ -13,10 +13,11 @@ const cormorant = Cormorant_Infant({
 
 export const metadata = {
   title: "silent lung",
-  description: "Fotografía y zines",
+  description: "Fotografía y zines",
   icons: {
     icon: "/favicon.svg?v=1",
     shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
