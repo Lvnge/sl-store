@@ -16,8 +16,7 @@ export const metadata = {
   description: "Fotografía y zines",
   icons: {
     icon: "/favicon.svg?v=1",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png?v=1",
+    apple: "/apple-touch-icon-200.png",
   },
 };
 
