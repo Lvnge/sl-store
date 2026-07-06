@@ -66,6 +66,16 @@ export default function RootLayout({ children }) {
       className={cormorant.variable}
     >
       <head>
+        <meta
+          name="theme-color"
+          content="#121415"
+          media="(prefers-color-scheme: dark)"
+        />
+        <meta
+          name="theme-color"
+          content="#f2f3f4"
+          media="(prefers-color-scheme: light)"
+        />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
