@@ -22,6 +22,26 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
+  openGraph: {
+    title: "silent lung",
+    description: "Fotografía y zines",
+    url: "https://sl-store-ashy.vercel.app",
+    siteName: "silent lung",
+    images: [
+      {
+        url: "/images/OG.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "silent lung",
+    description: "Fotografía y zines",
+    images: ["/images/OG.jpg"],
+  },
 };
 
 const themeScript = `
