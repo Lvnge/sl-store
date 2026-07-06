@@ -77,10 +77,10 @@ export default function RootLayout({ children }) {
           media="(prefers-color-scheme: light)"
         />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       {""}
       <body>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <ThemeProvider>
           <Nav />
           {children}
