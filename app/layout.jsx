@@ -31,7 +31,7 @@ export const metadata = {
     siteName: "silent lung",
     images: [
       {
-        url: "/images/OG.jpg",
+        url: "/images/og-image.png",
         width: 1200,
         height: 630,
       },
@@ -43,7 +43,7 @@ export const metadata = {
     title: "silent lung — fotografía, zines y arte",
     description:
       "Portfolio y tienda de Román Montes. Fotografía, zines y arte desde Nayarit, México.",
-    images: ["/images/OG.jpg"],
+    images: ["/images/og-image.png"],
   },
 };
 
