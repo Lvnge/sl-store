@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import styles from "./Player.module.css";
+import { useInView } from "@/hooks/useInView";
 
 export function Player({ src, title }) {
   const audioRef = useRef(null);
@@ -50,8 +51,13 @@ export function Player({ src, title }) {
     return `${m}:${sec.toString().padStart(2, "0")}`;
   };
 
+  const [ref, inView] = useInView();
+
   return (
-    <div className={styles.player}>
+    <div
+      ref={ref}
+      className={`${styles.player} fadeIn ${inView ? "visible" : ""}`}
+    >
       <audio
         ref={audioRef}
         src={src}

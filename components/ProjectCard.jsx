@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./ProjectCard.module.css";
+import { useInView } from "@/hooks/useInView";
 
 export function ProjectCard({
   title,
@@ -24,9 +25,26 @@ export function ProjectCard({
 
   const leftImage = singleImage ? images?.[current] : images?.[current * 2];
   const rightImage = singleImage ? null : images?.[current * 2 + 1];
+  const touchStartX = useRef(null);
 
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? next() : prev();
+    }
+    touchStartX.current = null;
+  };
+  const [ref, inView] = useInView();
   return (
-    <div className={styles.card}>
+    <div
+      ref={ref}
+      className={`${styles.card} fadeIn ${inView ? "visible" : ""}`}
+    >
       <Link href={href} className={styles.header}>
         <span className={styles.title}>{title}</span>
         {type && <span className={styles.type}>{type}</span>}
@@ -37,6 +55,8 @@ export function ProjectCard({
           <div
             className={styles.imageWrapper}
             style={{ "--carousel-ratio": aspectRatio }}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             <div
               className={`${styles.spread} ${spreadDivider ? styles.spreadDivider : ""}`}
