@@ -78,7 +78,6 @@ export default function RootLayout({ children }) {
         />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
       </head>
-      {""}
       <body>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <ThemeProvider>
