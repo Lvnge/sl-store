@@ -12,8 +12,9 @@ const cormorant = Cormorant_Infant({
 });
 
 export const metadata = {
-  title: "silent lung",
-  description: "Fotografía y zines",
+  title: "silent lung — fotografía, zines y arte",
+  description:
+    "Portfolio y tienda de Román Montes. Fotografía, zines y arte desde Nayarit, México.",
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -23,8 +24,9 @@ export const metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "silent lung",
-    description: "Fotografía y zines",
+    title: "silent lung — fotografía, zines y arte",
+    description:
+      "Portfolio y tienda de Román Montes. Fotografía, zines y arte desde Nayarit, México.",
     url: "https://sl-store-ashy.vercel.app",
     siteName: "silent lung",
     images: [
@@ -38,8 +40,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "silent lung",
-    description: "Fotografía y zines",
+    title: "silent lung — fotografía, zines y arte",
+    description:
+      "Portfolio y tienda de Román Montes. Fotografía, zines y arte desde Nayarit, México.",
     images: ["/images/OG.jpg"],
   },
 };
