@@ -3,6 +3,8 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { portfolioItems } from "@/lib/portfolio";
 import { PageWrapper } from "@/components/PageWrapper";
 import { Player } from "@/components/Player";
+import { NowUpdate } from "@/components/NowUpdate";
+import { nowUpdates } from "@/lib/updates";
 
 export default function Home() {
   const taker = portfolioItems.find((i) => i.slug === "taker");
@@ -13,22 +15,16 @@ export default function Home() {
   return (
     <PageWrapper>
       <main>
-        <div
-          style={{
-            "--card-title-font": "'PMingLiU-ExtB', serif",
-          }}
-        >
-          <ProjectCard
-            title={taker.title}
-            type={taker.type}
-            href="/portfolio/taker"
-            description={taker.description}
-            spreadDivider={false}
-            images={taker.images}
-            singleImage={false}
-            details={taker.details}
-          />
-        </div>
+        <ProjectCard
+          title={taker.title}
+          type={taker.type}
+          href="/portfolio/taker"
+          description={taker.description}
+          spreadDivider={false}
+          images={taker.images}
+          singleImage={false}
+          details={taker.details}
+        />
 
         <ProjectCard
           title={sendas.title}
@@ -69,6 +65,8 @@ export default function Home() {
         >
           <Player src="/audio/one-last-kiss.mp3" title="One last kiss" />
         </div>
+
+        <NowUpdate {...nowUpdates[0]} />
       </main>
     </PageWrapper>
   );
