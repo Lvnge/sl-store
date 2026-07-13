@@ -13,7 +13,6 @@ export default function NowPage() {
       <main className={styles.list}>
         <header className={styles.header}>
           <h1 className={styles.title}>Ahora</h1>
-          <p className={styles.subtitle}>En qué ando trabajando últimamente.</p>
         </header>
 
         {nowUpdates.map((update, i) => (
