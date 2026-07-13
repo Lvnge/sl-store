@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 
 export const metadata = {
   title: "Ahora",
-  description: "En qué ando trabajando últimamente.",
+  description: "Mi actualidad.",
 };
 
 export default function NowPage() {
