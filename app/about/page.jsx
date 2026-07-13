@@ -25,6 +25,13 @@ export default function AboutPage() {
             Fotografía, video, dibujo, pintura, escritura, zines y música.
           </p>
 
+          <div className={styles.bio}>
+            <span className={styles.bioLabel}>¿Por qué hago esto?</span>
+            <p>
+              {`Una noche de diciembre de 2018, tomé la primera foto con intención de capturar un sentimiento.\nDesde entonces no he dejado de hacer esto:\nobservar, fotografiar, expresar.\nEs mi única manera de comunicarme con el mundo.\nMe mantiene vivo.\nMe mantiene preso.`}
+            </p>
+          </div>
+
           <div className={styles.links}>
             <a
               href="https://www.instagram.com/rmg.wav/"
