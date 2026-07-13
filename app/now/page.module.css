@@ -4,17 +4,21 @@
   gap: 0.5rem;
   margin-bottom: 1rem;
   text-align: center;
+  color: var(--color-text);
+  transition: color 300ms ease;
 }
 
 .title {
   font-size: 2.5rem;
   color: var(--color-text);
   font-weight: normal;
+  transition: color 300ms ease;
 }
 
 .subtitle {
   font-size: 0.85rem;
   color: var(--color-text-muted);
+  transition: color 300ms ease;
 }
 
 .list {
@@ -32,6 +36,7 @@
   gap: 0.5rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--color-border);
+  transition: color 300ms ease;
 }
 
 .entry:last-child {
@@ -42,6 +47,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.05em;
   color: var(--color-text-muted);
+  transition: color 300ms ease;
 }
 
 .text {
@@ -49,14 +55,17 @@
   line-height: 1.6;
   color: var(--color-text);
   white-space: pre-line;
+  transition: color 300ms ease;
 }
 
 .reading {
   font-size: 0.85rem;
   color: var(--color-text-muted);
+  transition: color 300ms ease;
 }
 
 .bookTitle {
   font-style: italic;
   color: var(--color-text);
+  transition: color 300ms ease;
 }
