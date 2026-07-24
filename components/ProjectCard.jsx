@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./ProjectCard.module.css";
@@ -20,8 +20,31 @@ export function ProjectCard({
   const totalSpreads = singleImage
     ? images?.length || 0
     : Math.ceil((images?.length || 0) / 2);
-  const prev = () => setCurrent((i) => (i - 1 + totalSpreads) % totalSpreads);
-  const next = () => setCurrent((i) => (i + 1) % totalSpreads);
+
+  const [isAnimating, setIsAnimating] = useState(false);
+  const animationTimeout = useRef(null);
+
+  const changeSpread = (direction) => {
+    if (isAnimating || totalSpreads <= 1) return;
+    setIsAnimating(true);
+    animationTimeout.current = setTimeout(() => {
+      setCurrent((i) =>
+        direction === "next"
+          ? (i + 1) % totalSpreads
+          : (i - 1 + totalSpreads) % totalSpreads,
+      );
+      setIsAnimating(false);
+    }, 220);
+  };
+
+  const prev = () => changeSpread("prev");
+  const next = () => changeSpread("next");
+
+  useEffect(() => {
+    return () => {
+      if (animationTimeout.current) clearTimeout(animationTimeout.current);
+    };
+  }, []);
 
   const leftImage = singleImage ? images?.[current] : images?.[current * 2];
   const rightImage = singleImage ? null : images?.[current * 2 + 1];
@@ -98,7 +121,10 @@ export function ProjectCard({
               className={`${styles.spread} ${spreadDivider ? styles.spreadDivider : ""}`}
               style={{
                 transform: `translateX(${dragDelta}px)`,
-                transition: isDragging ? "none" : "transform 300ms ease",
+                opacity: isAnimating ? 0 : 1,
+                transition: isDragging
+                  ? "opacity 220ms ease"
+                  : "transform 300ms ease, opacity 220ms ease",
               }}
             >
               <div
@@ -113,6 +139,10 @@ export function ProjectCard({
                       aria-hidden="true"
                     />
                     <Image
+                      key={leftImage}
+                      ref={(img) => {
+                        if (img?.complete) markLoaded(leftImage);
+                      }}
                       src={leftImage}
                       alt={`${title} página ${current + 1}`}
                       fill
@@ -141,6 +171,10 @@ export function ProjectCard({
                     aria-hidden="true"
                   />
                   <Image
+                    key={rightImage}
+                    ref={(img) => {
+                      if (img?.complete) markLoaded(rightImage);
+                    }}
                     src={rightImage}
                     alt={`${title} página ${current * 2 + 2}`}
                     fill
