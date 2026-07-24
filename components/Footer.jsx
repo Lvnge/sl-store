@@ -1,11 +1,10 @@
-import Image from "next/image";
 import styles from "./Footer.module.css";
 
 export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.row}>
-        <span className={styles.text}>silent lung</span>
+        <span className={styles.text}>román montes</span>
         <svg
           width="20"
           height="20"

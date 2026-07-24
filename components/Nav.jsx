@@ -24,7 +24,7 @@ export function Nav() {
           className={styles.logo}
           onClick={() => setMenuOpen(false)}
         >
-          silent lung
+          román montes
         </Link>
 
         <div className={styles.desktopLinks}>
