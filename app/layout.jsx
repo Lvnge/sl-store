@@ -12,6 +12,7 @@ const cormorant = Cormorant_Infant({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://romanmontes.com"),
   title: "silent lung — fotografía, zines y arte",
   description: "Portfolio y tienda de Román Montes. Fotografía, zines y arte.",
   icons: {
@@ -26,7 +27,7 @@ export const metadata = {
     title: "silent lung — fotografía, zines y arte",
     description:
       "Portfolio y tienda de Román Montes. Fotografía, zines y arte.",
-    url: "https://sl-store-ashy.vercel.app",
+    url: "https://romanmontes.com",
     siteName: "silent lung",
     images: [
       {
@@ -60,7 +61,7 @@ const themeScript = `
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
+      lang="es"
       data-theme="light"
       suppressHydrationWarning
       className={cormorant.variable}
