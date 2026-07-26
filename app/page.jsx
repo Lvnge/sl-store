@@ -64,7 +64,7 @@ export default function Home() {
         <ProjectCard
           title={galeria.title}
           type={galeria.type}
-          href="/gallery"
+          href="/galeria"
           description={galeria.description}
           aspectRatio={galeria.aspectRatio}
           images={galeria.images}
