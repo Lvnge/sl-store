@@ -10,7 +10,9 @@ export default function PortfolioPage() {
         {portfolioItems.map((item) => (
           <Link
             key={item.slug}
-            href={`/portfolio/${item.slug}`}
+            href={
+              item.slug === "galeria" ? "/galeria" : `/portfolio/${item.slug}`
+            }
             className={styles.item}
             style={{
               "--card-title-font": item.titleFont || "var(--font-sans)",
