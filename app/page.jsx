@@ -11,6 +11,7 @@ export default function Home() {
   const sendas = portfolioItems.find((i) => i.slug === "sendas");
   const despues = portfolioItems.find((i) => i.slug === "despues-de-la-senda");
   const eda = portfolioItems.find((i) => i.slug === "ejercicios-de-amor");
+  const galeria = portfolioItems.find((i) => i.slug === "galeria");
 
   return (
     <PageWrapper>
@@ -59,6 +60,16 @@ export default function Home() {
           aspectRatio={eda.aspectRatio}
           images={eda.images}
           details={eda.details}
+        />
+        <ProjectCard
+          title={galeria.title}
+          type={galeria.type}
+          href="/gallery"
+          description={galeria.description}
+          aspectRatio={galeria.aspectRatio}
+          images={galeria.images}
+          singleImage={galeria.singleImage}
+          spreadDivider={false}
         />
         <div
           style={{ width: "100%", display: "flex", justifyContent: "center" }}

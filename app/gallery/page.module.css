@@ -1,0 +1,17 @@
+/* app/gallery/page.module.css */
+.main {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.grid {
+  display: grid;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}

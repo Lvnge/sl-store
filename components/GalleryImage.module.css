@@ -1,0 +1,25 @@
+/* GalleryImage.module.css */
+.wrapper {
+  position: relative;
+  width: 100%;
+  break-inside: avoid; /* clave para masonry: evita que una foto se parta entre columnas */
+  margin-bottom: 0.75rem;
+}
+
+.skeleton {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  /* La altura del skeleton imita el aspect ratio de la imagen antes de cargar.
+     Se basa en width/height de next/image (800x1200 = 3/4 portrait por defecto).
+     Como las fotos tienen aspect ratios variados, el skeleton va a ser
+     aproximadamente correcto — suficiente para evitar el flash. */
+  aspect-ratio: 800 / 1200;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto; /* clave para masonry: cada imagen mantiene su proporción real */
+  transition: opacity 400ms ease;
+}
