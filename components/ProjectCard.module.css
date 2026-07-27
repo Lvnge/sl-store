@@ -93,6 +93,7 @@
 .carouselTrack :global([data-slot="carousel-next"]) {
   top: 50%;
   transform: translateY(-50%);
+  inset-y: unset;
 }
 
 .slide {
@@ -160,4 +161,17 @@
     border-color var(--transition),
     color var(--transition),
     opacity 0.2s ease;
+}
+.carouselTrack :global([data-slot="carousel-previous"]),
+.carouselTrack :global([data-slot="carousel-next"]) {
+  display: none;
+}
+@media (min-width: 640px) {
+  .carouselTrack :global([data-slot="carousel-previous"]),
+  .carouselTrack :global([data-slot="carousel-next"]) {
+    display: flex;
+    top: 50%;
+    transform: translateY(-50%);
+    inset-y: unset;
+  }
 }
