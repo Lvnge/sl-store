@@ -89,13 +89,6 @@
   height: 100%;
 }
 
-.carouselTrack :global([data-slot="carousel-previous"]),
-.carouselTrack :global([data-slot="carousel-next"]) {
-  top: 50%;
-  transform: translateY(-50%);
-  inset-y: unset;
-}
-
 .slide {
   position: relative;
   width: 100%;
@@ -166,7 +159,7 @@
 .carouselTrack :global([data-slot="carousel-next"]) {
   display: none;
 }
-@media (min-width: 640px) {
+@media (min-width: 690px) {
   .carouselTrack :global([data-slot="carousel-previous"]),
   .carouselTrack :global([data-slot="carousel-next"]) {
     display: flex;

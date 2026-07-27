@@ -3,6 +3,30 @@ import { portfolioItems } from "@/lib/portfolio";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
 import { PageWrapper } from "@/components/PageWrapper";
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const item = portfolioItems.find((i) => i.slug === slug);
+
+  // Solo preload la fuente custom si este proyecto la usa
+  const links = item?.titleFont?.includes("PMingLiU-ExtB")
+    ? [
+        {
+          rel: "preload",
+          href: "/fonts/mingliub.woff2",
+          as: "font",
+          type: "font/woff2",
+          crossOrigin: "anonymous",
+        },
+      ]
+    : [];
+
+  return {
+    title: item?.title,
+    links,
+  };
+}
+
 export async function generateStaticParams() {
   return portfolioItems.map((item) => ({ slug: item.slug }));
 }
