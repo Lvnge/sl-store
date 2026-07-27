@@ -5,13 +5,19 @@ import { PageWrapper } from "@/components/PageWrapper";
 import { Player } from "@/components/Player";
 import { NowUpdate } from "@/components/NowUpdate";
 import { nowUpdates } from "@/lib/updates";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+
+export const metadata = {
+  metadataBase: new URL("https://romanmontes.com"),
+  links: [
+    {
+      rel: "preload",
+      href: "/fonts/mingliub.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+  ],
+};
 
 export default function Home() {
   const taker = portfolioItems.find((i) => i.slug === "taker");
@@ -28,10 +34,9 @@ export default function Home() {
           type={taker.type}
           href="/portfolio/taker"
           description={taker.description}
-          spreadDivider={false}
           images={taker.images}
-          singleImage={false}
           details={taker.details}
+          titleFont={taker.titleFont}
         />
 
         <ProjectCard
@@ -39,11 +44,8 @@ export default function Home() {
           type={sendas.type}
           href="/portfolio/sendas"
           description={sendas.description}
-          spreadDivider={false}
-          aspectRatio={sendas.aspectRatio}
           images={sendas.images}
           details={sendas.details}
-          singleImage={true}
         />
 
         <ProjectCard
@@ -51,11 +53,8 @@ export default function Home() {
           type={despues.type}
           href="/portfolio/despues-de-la-senda"
           description={despues.description}
-          spreadDivider={false}
-          aspectRatio={despues.aspectRatio}
           images={despues.images}
           details={despues.details}
-          singleImage={false}
         />
 
         <ProjectCard
@@ -63,21 +62,18 @@ export default function Home() {
           type={eda.type}
           href="/portfolio/ejercicios-de-amor"
           description={eda.description}
-          singleImage={eda.singleImage}
-          aspectRatio={eda.aspectRatio}
           images={eda.images}
           details={eda.details}
         />
+
         <ProjectCard
           title={galeria.title}
           type={galeria.type}
           href="/galeria"
           description={galeria.description}
-          aspectRatio={galeria.aspectRatio}
           images={galeria.images}
-          singleImage={galeria.singleImage}
-          spreadDivider={false}
         />
+
         <div
           style={{ width: "100%", display: "flex", justifyContent: "center" }}
         >

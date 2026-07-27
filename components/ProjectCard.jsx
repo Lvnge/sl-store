@@ -34,7 +34,7 @@ function Slide({ src, alt, priority = false }) {
         style={{ opacity: loaded ? 1 : 0, transition: "opacity 400ms ease" }}
         onLoad={() => setLoaded(true)}
         priority={priority}
-        loading="eager"
+        loading={priority ? "eager" : "lazy"}
       />
     </div>
   );
@@ -47,6 +47,7 @@ export function ProjectCard({
   images,
   href,
   details,
+  titleFont,
 }) {
   const [api, setApi] = useState(null);
   const [current, setCurrent] = useState(1);
@@ -62,7 +63,10 @@ export function ProjectCard({
   }, []);
 
   return (
-    <div className={styles.card}>
+    <div
+      className={styles.card}
+      style={titleFont ? { "--card-title-font": titleFont } : undefined}
+    >
       <Link href={href} className={styles.header}>
         <span className={styles.title}>{title}</span>
         {type && <span className={styles.type}>{type}</span>}
