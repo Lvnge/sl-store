@@ -5,6 +5,13 @@ import { PageWrapper } from "@/components/PageWrapper";
 import { Player } from "@/components/Player";
 import { NowUpdate } from "@/components/NowUpdate";
 import { nowUpdates } from "@/lib/updates";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function Home() {
   const taker = portfolioItems.find((i) => i.slug === "taker");

@@ -1,3 +1,4 @@
+/* ProjectCard.module.css */
 .card {
   padding-top: 4rem;
   display: flex;
@@ -75,49 +76,65 @@
   transition: color 300ms ease;
 }
 
-/* Carousel */
+/* Carousel — solo el contenedor wrapper, el resto lo maneja Embla */
 .carousel {
+  width: 100%;
+  max-width: 560px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 100%;
-  max-width: 560px;
 }
 
-.imageWrapper {
+.carouselTrack :global([data-slot="carousel"]) {
+  height: 100%;
+}
+
+.carouselTrack :global([data-slot="carousel-previous"]),
+.carouselTrack :global([data-slot="carousel-next"]) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slide {
   position: relative;
   width: 100%;
-  aspect-ratio: 3496 / 2480;
-  overflow: hidden;
-  aspect-ratio: var(--carousel-ratio);
-}
-
-.spread {
+  height: 100%;
   display: flex;
+  flex-direction: column;
+}
+
+.slideSkeleton {
   width: 100%;
-  height: 100%;
+  border-radius: 0;
 }
 
-.spreadDivider .page:first-child {
-  border-right: 1px solid rgba(128, 128, 128, 0.15);
+.slideImage {
+  /* h-auto para que respete la proporción real de cada imagen */
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  /* Posición absoluta solo cuando el skeleton está visible,
+     para que no duplique el espacio */
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.page {
+/* Una vez cargada, el slide toma el alto real de la imagen */
+.slide:has(.slideImage[style*="opacity: 1"]) {
   position: relative;
-  flex: 1;
-  height: 100%;
 }
 
-.image {
-  object-fit: cover;
+.slide:has(.slideImage[style*="opacity: 1"]) .slideSkeleton {
+  display: none;
+}
+
+.slide:has(.slideImage[style*="opacity: 1"]) .slideImage {
+  position: relative;
 }
 
 .controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.controlsCenter {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,56 +146,18 @@
   opacity: 0.4;
   letter-spacing: 0.05em;
 }
-.arrow {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  color: inherit;
-  padding: 0;
-  opacity: 0.5;
-  transition: opacity 0.2s;
-}
-
-.arrow:hover {
-  opacity: 1;
-}
 
 .counter {
   font-size: 0.75rem;
   opacity: 0.4;
   letter-spacing: 0.05em;
 }
-
-.skeleton {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    100deg,
-    var(--color-surface) 30%,
-    var(--color-bg-subtle) 50%,
-    var(--color-surface) 70%
-  );
-  background-size: 200% 100%;
-  animation: skeletonPulse 1.4s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes skeletonPulse {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-/* Evita que el navegador muestre el cursor de "seleccionar texto" al arrastrar */
-.imageWrapper {
-  cursor: grab;
-  user-select: none;
-}
-
-.imageWrapper:active {
-  cursor: grabbing;
+/* Agrega esto a ProjectCard.module.css */
+.carousel :global([data-slot="carousel-previous"]),
+.carousel :global([data-slot="carousel-next"]) {
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    opacity 0.2s ease;
 }
