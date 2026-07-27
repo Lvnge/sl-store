@@ -13,7 +13,7 @@ const cormorant = Cormorant_Infant({
 
 export const metadata = {
   metadataBase: new URL("https://romanmontes.com"),
-  title: "silent lung — fotografía, zines y arte",
+  title: "román montes — fotografía, zines y arte",
   description: "Portfolio y tienda de Román Montes. Fotografía, zines y arte.",
   icons: {
     icon: [
@@ -24,11 +24,11 @@ export const metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "silent lung — fotografía, zines y arte",
+    title: "román montes — fotografía, zines y arte",
     description:
       "Portfolio y tienda de Román Montes. Fotografía, zines y arte.",
     url: "https://romanmontes.com",
-    siteName: "silent lung",
+    siteName: "román montes",
     images: [
       {
         url: "/images/og-image.jpg?v=2",
@@ -40,7 +40,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "silent lung — fotografía, zines y arte",
+    title: "román montes — fotografía, zines y arte",
     description:
       "Portfolio y tienda de Román Montes. Fotografía, zines y arte.",
     images: ["/images/og-image.jpg?v=2"],
