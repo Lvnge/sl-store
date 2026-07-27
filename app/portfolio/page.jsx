@@ -3,6 +3,19 @@ import { portfolioItems } from "@/lib/portfolio";
 import styles from "./page.module.css";
 import { PageWrapper } from "@/components/PageWrapper";
 
+export const metadata = {
+  title: "Portafolio",
+  links: [
+    {
+      rel: "preload",
+      href: "/fonts/mingliub.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+  ],
+};
+
 export default function PortfolioPage() {
   return (
     <PageWrapper>

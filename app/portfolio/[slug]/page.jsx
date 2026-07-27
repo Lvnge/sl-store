@@ -3,7 +3,6 @@ import { portfolioItems } from "@/lib/portfolio";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
 import { PageWrapper } from "@/components/PageWrapper";
-
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const item = portfolioItems.find((i) => i.slug === slug);
