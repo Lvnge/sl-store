@@ -34,7 +34,7 @@ function Slide({ src, alt, priority = false }) {
         style={{ opacity: loaded ? 1 : 0, transition: "opacity 400ms ease" }}
         onLoad={() => setLoaded(true)}
         priority={priority}
-        loading={priority ? "eager" : "lazy"}
+        loading="eager"
       />
     </div>
   );
